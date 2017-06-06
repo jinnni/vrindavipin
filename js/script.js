@@ -57,23 +57,31 @@ function action(target){
    case "menu_close_btn":
       $(".container__navbar").toggleClass("expanded");
       break;
-   case "":
+   case "searchbtn":
+       var searchkeyword = $("#searchbar").val();
+       var url = "https://en.wikipedia.org/?curid=";
+       var url =
+         "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exlimit=max&format=json&exsentences=1&exintro=&explaintext=&generator=search&gsrlimit=10&gsrsearch="+ searchkeyword;
+       ajaxCall(url,searchkeyword);
+       if($(target).hasClass("fa-times"))
+       {
+          $(target).addClass("fa-search").removeClass("fa-times");
+          $('.result').empty();
+          $("input").val();
+       }
+       else{
+        $(target).addClass("fa-times").removeClass("fa-search");
+       }
       break;
+    case "":
+
+       break;
 	}
 }
 
 function changeContentToHindi(){}
 
 function changeContentToEnglish(){}
-
-$(".searchbtn").click(function(e) {
-  e.preventDefault();
-  var searchkeyword = $("#searchbar").val();
-  var url = "https://en.wikipedia.org/?curid=";
-  var url =
-    "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exlimit=max&format=json&exsentences=1&exintro=&explaintext=&generator=search&gsrlimit=10&gsrsearch="+ searchkeyword;
-  ajaxCall(url,searchkeyword);
-});
 
 function ajaxCall(url,searchkeyword){
   var isfound=false;
@@ -85,12 +93,16 @@ function ajaxCall(url,searchkeyword){
    contentType: "application/json; charset=utf-8",
    success:function(data){
      isfound=true;
-     if(data.batchcomplete == "" && data.query==undefined || data.query.pages == undefined){
-       isfound=false;
-       $('.result').html('<h1>'+str+" : "+searchkeyword+'</h1>');
+     if(data.query == undefined){
        return false;
+     }else{
+       if(data.batchcomplete == "" && data.query==undefined || data.query.pages == undefined){
+         isfound=false;
+         $('.result').html('<h1>'+str+" : "+searchkeyword+'</h1>');
+         return false;
+       }
+       searchTemplate(data,str,searchkeyword);
      }
-     searchTemplate(data,str,searchkeyword);
    }
  })
 }
