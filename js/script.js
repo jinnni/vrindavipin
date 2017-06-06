@@ -4,6 +4,7 @@ $(document).ready(function(){
   $(".action").on("click",function(event){
     action(event.target);
   });
+  social_media();
 });
 function audio(){
   var mp3 =  document.getElementById("welcome_audio");
@@ -37,6 +38,11 @@ function initCarousel(){
       }
     }
   });
+}
+function social_media(){
+  setTimeout(function(){
+    $(".container__social-media").toggleClass("slide-left");
+  },500);
 }
 function action(target){
   var welcomeComp = $(".welcome");
