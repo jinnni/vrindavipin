@@ -1,9 +1,23 @@
 $(document).ready(function(){
+  logo();
   initCarousel();
   $(".action").on("click",function(event){
     action(event.target);
   });
 });
+function audio(){
+  var mp3 =  document.getElementById("welcome_audio");
+  mp3.play();
+  mp3.loop = true;
+}
+function logo(){
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  ctx.font = '40px "PirataOne"';
+  ctx.fillStyle = "#fff";
+  ctx.textAlign = "center";
+  ctx.fillText("Vrindavipin.org", canvas.width/2, canvas.height/2);
+}
 function initCarousel(){
   $('.owl-carousel').owlCarousel({
     loop:true,
@@ -34,6 +48,7 @@ function action(target){
    case "close_btn":
       $(".container").removeClass("blured");
 			welcomeComp.fadeOut("fast");
+      audio();
       break;
    case "social-media":
       $(".container__social-media").toggleClass("slide-left");
@@ -50,3 +65,39 @@ function action(target){
 function changeContentToHindi(){}
 
 function changeContentToEnglish(){}
+
+$(".searchbtn").click(function(e) {
+  e.preventDefault();
+  var searchkeyword = $("#searchbar").val();
+  var url = "https://en.wikipedia.org/?curid=";
+  var url =
+    "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exlimit=max&format=json&exsentences=1&exintro=&explaintext=&generator=search&gsrlimit=10&gsrsearch="+ searchkeyword;
+  ajaxCall(url,searchkeyword);
+});
+
+function ajaxCall(url,searchkeyword){
+  var isfound=false;
+  var str ='No Results Found';
+  $.ajax({
+   url:url,
+   dataType: 'jsonp',
+   method : 'GET',
+   contentType: "application/json; charset=utf-8",
+   success:function(data){
+     isfound=true;
+     if(data.batchcomplete == "" && data.query==undefined || data.query.pages == undefined){
+       isfound=false;
+       $('.result').html('<h1>'+str+" : "+searchkeyword+'</h1>');
+       return false;
+     }
+     searchTemplate(data,str,searchkeyword);
+   }
+ })
+}
+
+function searchTemplate(data,str,searchkeyword){
+  $('.result').empty();
+  $.each(data.query.pages,function(index,element){
+  $('.result').append('<div class="item"><div class="item__header"><h2>'+element.title+'</h2></div><div class="item__content"><p>'+element.extract+'</p></div><div class="item__footer"><a href="https://en.wikipedia.org/?curid='+element.pageid+' target="_blank">Visit Page</a></div></div>')
+  });
+}

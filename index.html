@@ -4,6 +4,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="language" content="English" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+    <style media="screen">
+    @font-face {
+      font-family: 'PirataOne';
+      src: url("css/PirataOne-Regular.ttf") format('truetype');
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'GreatVibes';
+      src: url("css/GreatVibes-Regular.ttf") format('truetype');
+      font-style: normal;
+    }
+    </style>
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>
@@ -17,11 +29,18 @@
     <div class="container blured">
       <div class="container__header">
         <i class="action fa fa-bars" id="menu_btn" aria-hidden="true"></i>
-        <div class="container__logo">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=logo&w=200&h=100" alt="logo" />
+        <div class="container__logo"><canvas id="canvas" width="400" height="70"></canvas></div>
+        <div class="wrapper search_bar">
+          <div class="header">
+
+          </div>
+          <input type="text" id='searchbar' name="" value="" class="input" placeholder='Wiki Search'>
+          <a href="#" class="searchbtn fa fa-search"></a>
+          <div class="result">
+
+          </div>
         </div>
         <div class="container__navbar mobile collapsed">
-          <img src="assets/img1.jpg" class="">
           <i class="action fa fa-times" id="menu_close_btn" aria-hidden="true"></i>
           <ul class="container__navbar_list mobile">
             <li><a href="">Home</a></li>
@@ -37,11 +56,11 @@
       </div>
       <div class="container__section">
         <div class="container__carousel owl-carousel">
-          <div class="owl-item"><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=carosel_1&w=1366&h=650" alt="" /></div>
-          <div class="owl-item"><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=carosel_2&w=1366&h=650" alt="" /></div>
-          <div class="owl-item"><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=carosel_3&w=1366&h=650" alt="" /></div>
-          <div class="owl-item"><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=carosel_4&w=1366&h=650" alt="" /></div>
-          <div class="owl-item"><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=carosel_5&w=1366&h=650" alt="" /></div>
+          <div class="owl-item" style="background-image : url('assets/carousel1.jpg');"></div>
+          <div class="owl-item" style="background-image : url('assets/carousel2.jpg');"></div>
+          <div class="owl-item" style="background-image : url('assets/carousel3.jpg');"></div>
+          <div class="owl-item" style="background-image : url('assets/carousel4.jpg');"></div>
+          <div class="owl-item" style="background-image : url('assets/carousel5.jpg');"></div>
         </div>
       </div>
       <div class="container__footer">
@@ -53,14 +72,20 @@
           <i class="action fa fa-hand-o-left" id="social-media" aria-hidden="true"></i>
         </div>
       </div>
+      <div class="welcome_audio_wrapper">
+        <audio id="welcome_audio" controls>
+          <source src="assets/welcome_jai_jai.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+        </audio>
+      </div>
     </div>
     <div class="welcome">
       <i class="welcome__close action fa fa-times" id="close_btn" aria-hidden="true"></i>
       <div class="welcome__header">
-        <h1 class="welcome__greeting">!! Radhey Radhey !!</h1>
+        <h1 class="welcome__greeting" style="font-family:PirataOne;">!! Radhey Radhey !!</h1>
       </div>
       <div class="welcome__section">
-        <img src="assets/welcome.jpg" alt="" style="width:100%"/><!--https://placeholdit.imgix.net/~text?txtsize=33&txt=Hello%0AWorld&w=600&h=350 -->
+        <img src="assets/welcome.jpg" alt="" style="width:100%"/>
       </div>
       <div class="welcome__footer">
         <button class="welcome__button eng action" id="eng_btn">English</button>
@@ -68,10 +93,4 @@
       </div>
      </div>
   </body>
-  <script>
-
-  </script>
-  <style>
-
-  </style>
 </html>
