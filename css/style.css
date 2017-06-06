@@ -145,7 +145,7 @@ button,h1{
   justify-content: space-around;
   margin: 0px 25%;
   background: rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 23px #212121;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
 }
 .caption{
     font-family: "GreatVibes";
@@ -164,6 +164,9 @@ button,h1{
   padding: 10px;
   transition: border 1.5s ease;
   border-bottom: 1px solid #fff;
+}
+.mobile li:last-child{
+  border-bottom: 0px;
 }
 .mobile li a{
   font-family: "GreatVibes";
