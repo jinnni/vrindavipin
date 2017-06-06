@@ -62,7 +62,6 @@ function action(target){
        var url = "https://en.wikipedia.org/?curid=";
        var url =
          "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exlimit=max&format=json&exsentences=1&exintro=&explaintext=&generator=search&gsrlimit=10&gsrsearch="+ searchkeyword;
-       ajaxCall(url,searchkeyword);
        if($(target).hasClass("fa-times"))
        {
           $(target).addClass("fa-search").removeClass("fa-times");
@@ -70,7 +69,8 @@ function action(target){
           $("input").val();
        }
        else{
-        $(target).addClass("fa-times").removeClass("fa-search");
+          $(target).addClass("fa-times").removeClass("fa-search");
+          ajaxCall(url,searchkeyword);
        }
       break;
     case "":
