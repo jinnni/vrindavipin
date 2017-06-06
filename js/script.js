@@ -1,10 +1,10 @@
+var collapseInterval;
 $(document).ready(function(){
   logo();
   initCarousel();
   $(".action").on("click",function(event){
     action(event.target);
   });
-  social_media();
 });
 function audio(){
   var mp3 =  document.getElementById("welcome_audio");
@@ -40,9 +40,9 @@ function initCarousel(){
   });
 }
 function social_media(){
-  setTimeout(function(){
+  collapseInterval = setInterval(function(){
     $(".container__social-media").toggleClass("slide-left");
-  },500);
+  },1500);
 }
 function action(target){
   var welcomeComp = $(".welcome");
@@ -55,8 +55,10 @@ function action(target){
       $(".container").removeClass("blured");
 			welcomeComp.fadeOut("fast");
       audio();
+      social_media();
       break;
    case "social-media":
+      clearInterval(collapseInterval);
       $(".container__social-media").toggleClass("slide-left");
       break;
    case "menu_btn":
