@@ -8,7 +8,7 @@ $(document).ready(function(){
 });
 function audio(){
   var mp3 =  document.getElementById("welcome_audio");
-  mp3.play();
+  //mp3.play();
   mp3.loop = true;
 }
 function logo(){

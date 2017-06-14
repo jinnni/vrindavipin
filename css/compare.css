@@ -1,0 +1,45 @@
+*{
+  margin:0px;
+  padding:0px;
+  list-style:none;
+  text-decoration:none;
+  outline:0px;
+  color: #fff;
+}
+body{
+  overflow: hidden;
+}
+.carousel_wrapper .owl-item {
+    position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+.carousel_wrapper .owl-carousel{
+    width: 640px;
+    height: 480px;
+    background: black;
+}
+.owl-stage-outer img { transition: all 5s ease-in-out; }
+.owl-stage-outer img:hover{
+  transition: all 5s ease-in-out;
+  transform: scale(1.5);
+  opacity: 0.1;
+  background: #000;
+}
+.describe{
+  opacity 0;
+}
+.describe:hover{
+    animation-delay: 6s;
+    transition:opacity 0.2s 1s ease;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.37);
+    margin: 20px;
+}
