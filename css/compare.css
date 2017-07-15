@@ -4,10 +4,41 @@
   list-style:none;
   text-decoration:none;
   outline:0px;
-  color: #fff;
+  
 }
-body{
-  overflow: hidden;
+.oldimg,.newimg{
+	width: 100vw;
+	height: 100vh;
+}
+img { transition: all 5s ease-in-out; }
+img:hover{
+  transition: all 5s ease-in-out;
+  transform: scale(1.5);
+  opacity: 0.1;
+ }
+.desc{
+	position: absolute;
+	top: 0px;
+	overflow:auto;
+	padding: 20px;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+.desc:hover{
+	transition: all 5s ease-in-out;
+	z-index: 0;
+}
+.timeline-container{
+	width: 100vw;
+	height: 100vh;
+}
+.content,.timeline-list{
+	width: 100vw;
+	height: 100vh;
+}
+.timeline-item{
+	padding: 0px;
 }
 .carousel_wrapper .owl-item {
     position: fixed;

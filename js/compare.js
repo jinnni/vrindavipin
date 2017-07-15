@@ -7,7 +7,8 @@ var image_arrays = [
 ];
 $(document).ready(function(){
   logo();
-  createCarousel();
+  createTimeline();
+  //createCarousel();
 });
 function logo(){
   var canvas = document.getElementById("canvas");
@@ -17,14 +18,30 @@ function logo(){
   ctx.textAlign = "center";
   ctx.fillText("Vrindavipin.org", canvas.width/2, canvas.height/2);
 }
+function createTimeline(){
+	var arrayLength = image_arrays.length;
+	for(index in image_arrays){
+		var temp = '<div class="content" data-time="'+image_arrays[index].year+'"><img class="oldimg" src='+image_arrays[index].oldImgPath+'><div class="desc">'+image_arrays[index].description+'</div></div>';
+		$(".timeline").append(temp);
+	}
+	$('.js-timeline').Timeline({
+  dotsPosition: 'top',
+  startItem: 'last'
+  //autoplay: true,
+  //mode: 'vertical'
+  });
+}
 function createCarousel(){
+var temp = '<div data-time='+image_arrays[index].year+'><div><img class="oldimg" src='+image_arrays[index].oldImgPath+'><div>'+image_arrays[index].description+'</div><img class="newimg" src='+image_arrays[index].newImgPath+'></div></div>';
+
+
   var arrayLength = image_arrays.length;
   //alert(arrayLength);
   for(index in image_arrays){
     var carousel_list = document.createElement("div");
-    carousel_list.setAttribute("class","owl-carousel li"+index);
-    $(".carousel_wrapper").append(carousel_list);
-    var temp = '<div class="owl-item"><img src='+image_arrays[index].oldImgPath+'></div><div class="owl-item"><img src='+image_arrays[index].newImgPath+'></div>';
+    carousel_list.setAttribute("class","timeline js-timeline");
+    $(".timeline-container").append(carousel_list);
+    var temp = '<div data-time="2017"><img src='+image_arrays[index].oldImgPath+'></div><div class="owl-item"><img src='+image_arrays[index].newImgPath+'></div>';
     $(".li"+index).html(temp);
     initCarousel(".owl-carousel",image_arrays[index],".li"+index);
   }
