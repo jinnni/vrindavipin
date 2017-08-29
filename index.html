@@ -28,13 +28,13 @@
   <body>
     <div class="container blured">
       <div class="container__header">
-        <i class="action fa fa-bars" id="menu_btn" aria-hidden="true"></i>
+        <i class="action fa fa-bars" id="menu_btn" aria-hidden="true"><b>&nbsp;&nbsp;MENU</b></i>
         <div class="container__logo">
           <a href="index.html">
-            <canvas id="canvas" width="400" height="70"></canvas></div>
+            <canvas id="canvas" width="400" height="50"></canvas></div>
           </a>
         <div class="container__navbar mobile collapsed">
-          <i class="action fa fa-times" id="menu_close_btn" aria-hidden="true"></i>
+          <i class="action fa fa-times" id="menu_close_btn" aria-hidden="true"><b>CLOSE</b></i>
           <ul class="container__navbar_list mobile">
             <li><a href="index.html">Home</a></li>
             <li><a href="page/about.html">About Us</a></li>
@@ -43,41 +43,44 @@
             <li><a href="">Feedback</a></li>
             <li><a href="">Tree Data</a></li>
             <li><a href="page/faq.html">Faq</a></li>
-            <li><a href="">Contacts Us</a></li>
           </ul>
         </div>
       </div>
       <div class="container__section">
         <div class="container__carousel owl-carousel">
-          <div class="owl-item" style="background-image : url('assets/carousel1.jpg');"><p class="caption">Trees are poems that the earth </br>writes upon the sky.</p></div>
-          <div class="owl-item" style="background-image : url('assets/carousel2.jpg');"><p class="caption">You will find something more in woods</br> than in books.</p></div>
-          <div class="owl-item" style="background-image : url('assets/carousel3.jpg');"><p class="caption">So when are you writing yours..plant your trees.</p></div>
-          <div class="owl-item" style="background-image : url('assets/carousel4.jpg');"><p class="caption">What we are doing to the forests of the world is but a </br>mirror reflection</br> of what we are doing to ourselves</br> and to one another.</p></div>
-          <div class="owl-item" style="background-image : url('assets/carousel5.jpg');"><p class="caption">So lets prepare Vrindavan </br>a van Vrindavan again...</p></div>
+          <div class="owl-item" style="background-image : url('assets/caro1.jpg');"></div>
+          <div class="owl-item" style="background-image : url('assets/caro2.jpg');"></div>
+          <div class="owl-item" style="background-image : url('assets/caro3.jpg');"></div>
+          <div class="owl-item" style="background-image : url('assets/caro4.jpg');"></div>
+          <div class="owl-item" style="background-image : url('assets/caro5.jpg');"></div>
         </div>
       </div>
       <div class="container__footer">
+        <div class="welcome_audio_wrapper">
+          <audio id="welcome_audio" controls>
+            <source src="assets/welcome_jai_jai.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div class="container__contactus contactleft">
+          <h2>Shri RadhaVallabh Sampradaya</h2>
+          <p>Contact to:<b>Goswami Shri Hit Mohit Maral "Yuvraj"</b></p>
+          <p>Address:<b>Shri RadhaVallabh Mandir,<br>Shri Hit Vrindavan Dham-281121, U.P.,<br>District Mathura, INDIA.</b></p>
+        </div>
+        <div class="container__contactus contactright">
+          <p>Ph no.:<b>0091 - 565 - 2442857</b></p>
+          <p>Mobile no.:<b>+91-9837091075</b></p>
+          <p>e-mail us:<b>Yuvrajmmg@gmail.com <br>anandagrawalji@gmail.com</b></p>
+        </div>
         <div class="container__social-media">
-          <a class="list-group-item" href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+          <a class="list-group-item" href="https://www.facebook.com/VrindavanPlantation/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
           <a class="list-group-item" href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
-          <a class="list-group-item" href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-          <a class="list-group-item" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-          <i class="action fa fa-hand-o-left" id="social-media" aria-hidden="true"></i>
+          <a class="list-group-item" href="https://www.youtube.com/user/yuvrajmmg/videos" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
+          <a class="list-group-item" href="https://www.instagram.com/yuvrajmmg1/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+          <!-- <i class="action fa fa-hand-o-left" id="social-media" aria-hidden="true"></i> -->
         </div>
       </div>
-      <div class="welcome_audio_wrapper">
-        <audio id="welcome_audio" controls>
-          <source src="assets/welcome_jai_jai.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-        </audio>
-      </div>
-    </div>
-    <div class="search_bar">
-      <div class="input_container">
-        <input type="text" id='searchbar' name="" value="" class="input">
-        <a href="#" class="action fa fa-search" id="searchbtn"></a>
-      </div>
-      <div class="result"></div>
+
     </div>
     <div class="welcome">
       <i class="welcome__close action fa fa-times" id="close_btn" aria-hidden="true"></i>

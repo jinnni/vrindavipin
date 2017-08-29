@@ -17,7 +17,7 @@ function logo(){
   ctx.font = '40px "PirataOne"';
   ctx.fillStyle = "#fff";
   ctx.textAlign = "center";
-  ctx.fillText("Vrindavipin.org", canvas.width/2, canvas.height/2);
+  ctx.fillText("Vrindavipin.org", canvas.width/2, canvas.height/1.4);
 }
 function initCarousel(){
   $('.owl-carousel').owlCarousel({
@@ -55,69 +55,19 @@ function action(target){
       $(".container").removeClass("blured");
 			welcomeComp.fadeOut("fast");
       audio();
-      social_media();
+      //social_media();
       break;
    case "social-media":
-      clearInterval(collapseInterval);
-      $(".container__social-media").toggleClass("slide-left");
+      // clearInterval(collapseInterval);
+      // $(".container__social-media").toggleClass("slide-left");
       break;
    case "menu_btn":
    case "menu_close_btn":
       $(".container__navbar").toggleClass("expanded");
       break;
-   case "searchbtn":
-       var searchkeyword = $("#searchbar").val();
-       var url = "https://en.wikipedia.org/?curid=";
-       var url =
-         "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exlimit=max&format=json&exsentences=1&exintro=&explaintext=&generator=search&gsrlimit=10&gsrsearch="+ searchkeyword;
-       if($(target).hasClass("fa-times"))
-       {
-          $(target).addClass("fa-search").removeClass("fa-times");
-          $('.result').empty();
-          $("input").val();
-       }
-       else{
-          $(target).addClass("fa-times").removeClass("fa-search");
-          ajaxCall(url,searchkeyword);
-       }
-      break;
-    case "":
-
-       break;
 	}
 }
 
 function changeContentToHindi(){}
 
 function changeContentToEnglish(){}
-
-function ajaxCall(url,searchkeyword){
-  var isfound=false;
-  var str ='No Results Found';
-  $.ajax({
-   url:url,
-   dataType: 'jsonp',
-   method : 'GET',
-   contentType: "application/json; charset=utf-8",
-   success:function(data){
-     isfound=true;
-     if(data.query == undefined){
-       return false;
-     }else{
-       if(data.batchcomplete == "" && data.query==undefined || data.query.pages == undefined){
-         isfound=false;
-         $('.result').html('<h1>'+str+" : "+searchkeyword+'</h1>');
-         return false;
-       }
-       searchTemplate(data,str,searchkeyword);
-     }
-   }
- })
-}
-
-function searchTemplate(data,str,searchkeyword){
-  $('.result').empty();
-  $.each(data.query.pages,function(index,element){
-  $('.result').append('<div class="item"><div class="item__header"><h2>'+element.title+'</h2></div><div class="item__content"><p>'+element.extract+'</p></div><div class="item__footer"><a href="https://en.wikipedia.org/?curid='+element.pageid+' target="_blank">Visit Page</a></div></div>')
-  });
-}
